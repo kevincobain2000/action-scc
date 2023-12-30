@@ -33,4 +33,4 @@
 
 - This action uses [scc](https://github.com/boyter/scc) to generate the data.
 - This action uses [instachart](https://github.com/kevincobain2000/instachart) to generate the chart.
-- This action updates README url with chart image url in place. And adds new at the top if not present.
+- This action updates `README.md` with url of chart image. Or adds new at the top if first time.
