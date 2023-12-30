@@ -22,6 +22,14 @@ inputs:
     description: "style of the chart"
     required: false
     default: "bar"
+  width:
+    description: "width of the chart"
+    required: false
+    default: "960"
+  height:
+    description: "width of the chart"
+    required: false
+    default: "700"
 runs:
   using: "composite"
   steps:
@@ -36,7 +44,7 @@ runs:
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
 
-    - run: scc.sh ${{ inputs.limit }} ${{ inputs.readme_filename }} ${{ inputs.instachart_url }} ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ inputs.style }}
+    - run: scc.sh ${{ inputs.limit }} ${{ inputs.readme_filename }} ${{ inputs.instachart_url }} ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ inputs.style }} ${{ inputs.width }} ${{ inputs.height }}
       shell: bash
 
     - name: Commit files

@@ -18,6 +18,8 @@ var (
 	instachartUrl string
 	subtitle      string
 	style         string
+	width         string
+	height        string
 	altText       string
 )
 
@@ -107,8 +109,8 @@ func createBarChartURL(scc []SccStat, limit int) string {
 	json, _ := json.Marshal(data)
 	queries := map[string]string{
 		"title":    "SCC+-+Sloc,+Cloc+and+Code",
-		"width":    "960",
-		"height":   "700",
+		"width":    width,
+		"height":   height,
 		"subtitle": subtitle,
 		"metric":   "+lines",
 		"data":     string(json),
@@ -153,6 +155,8 @@ func flags() {
 	flag.StringVar(&subtitle, "subtitle", "", "chart subtitle")
 	flag.StringVar(&altText, "alt-text", "", "alt text for the image")
 	flag.StringVar(&style, "style", "", "chart style")
+	flag.StringVar(&width, "width", "", "chart width")
+	flag.StringVar(&height, "height", "", "chart height")
 	flag.Parse()
 
 	// as flags can be empty string, and we want to use default values
@@ -170,6 +174,12 @@ func flags() {
 	}
 	if style == "" {
 		flag.Set("style", "bar")
+	}
+	if width == "" {
+		flag.Set("width", "960")
+	}
+	if height == "" {
+		flag.Set("height", "700")
 	}
 	limitInt, _ = strconv.Atoi(limit)
 	if limitInt <= 0 {
