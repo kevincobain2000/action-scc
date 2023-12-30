@@ -10,13 +10,24 @@
 **Quick Setup:** Quickly add `scc` output as chart to your `README.md` with single action.
 
 
+
 ## Usage
 
 ```yaml
 - uses: kevincobain2000/action-scc@v1
 ```
 
-**Options**
+## Allow permissions
+
+- Make sure you have `README.md` in your repo.
+- Make sure `Settings > Actions > General` Workflow permissions - Read and write permissions are checked.
+
+<p align="center">
+  <img alt="scc logo" src="https://imgur.com/jysKBFC.png" width="560">
+</p>
+
+
+## Optional options
 
 ```yaml
 - uses: kevincobain2000/action-scc@v1

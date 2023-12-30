@@ -10,5 +10,4 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    - name: Real
-      uses: kevincobain2000/action-scc@v1
+    - uses: kevincobain2000/action-scc@v1
