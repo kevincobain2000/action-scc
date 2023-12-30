@@ -1,0 +1,53 @@
+name: "gobrew"
+author: "kevincobain2000"
+description: "Coverage test"
+branding:
+  icon: 'heart'
+  color: 'green'
+
+inputs:
+  limit:
+    description: "limit languages for scc"
+    required: false
+    default: "7"
+  readme_filename:
+    description: "markdown file to update"
+    required: false
+    default: "README.md"
+  instachart_url:
+    description: "instachart url if self hosting"
+    required: false
+    default: "https://instachart.coveritup.app"
+  style:
+    description: "style of the chart"
+    required: false
+    default: "bar"
+runs:
+  using: "composite"
+  steps:
+    - uses: kevincobain2000/action-gobrew@v2
+      with:
+        version: latest
+
+    - name: Install scc
+      run: go install github.com/boyter/scc/v3@latest
+      shell: bash
+
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+
+    - run: scc.sh ${{ inputs.limit }} ${{ inputs.readme_filename }} ${{ inputs.instachart_url }} ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ inputs.style }}
+      shell: bash
+
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -a -m "(scc) Update README.md" || echo "Nothing to update"
+      shell: bash
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ github.token }}
+        branch: ${{ github.ref }}
+
