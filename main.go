@@ -110,6 +110,7 @@ func createBarChartURL(scc []SccStat, limit int) string {
 		"width":    "960",
 		"height":   "700",
 		"subtitle": subtitle,
+		"metric":   "+lines",
 		"data":     string(json),
 	}
 
