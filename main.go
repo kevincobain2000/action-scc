@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"strconv"
@@ -50,10 +51,14 @@ func main() {
 }
 
 func newOrReplaceInFile(markdownImgeURL string, filename string) {
-	file, _ := os.Open(filename)
+	file, err := os.Open(filename)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 	defer file.Close()
 
-	content, _ := ioutil.ReadAll(file)
+	content, _ := io.ReadAll(file)
 
 	found := false
 	lines := strings.Split(string(content), "\n")
@@ -65,12 +70,12 @@ func newOrReplaceInFile(markdownImgeURL string, filename string) {
 	}
 	if found {
 		newContent := []byte(strings.Join(lines, "\n"))
-		ioutil.WriteFile(readmeFile, newContent, 0644)
+		os.WriteFile(readmeFile, newContent, 0644)
 	}
 
 	if !found {
 		newContent := []byte(markdownImgeURL + "\n\n" + string(content))
-		ioutil.WriteFile(readmeFile, newContent, 0644)
+		os.WriteFile(readmeFile, newContent, 0644)
 	}
 }
 

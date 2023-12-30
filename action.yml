@@ -1,6 +1,6 @@
-name: "gobrew"
+name: "scc"
 author: "kevincobain2000"
-description: "Coverage test"
+description: "SCC - Sloc, Cloc and Code: Action to update README.md with code stats"
 branding:
   icon: 'heart'
   color: 'green'
@@ -43,7 +43,7 @@ runs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git commit -a -m "(scc) Update README.md" || echo "Nothing to update"
+        git commit -a -m "(action-scc) Update README.md" || echo "Nothing to update"
       shell: bash
     - name: Push changes
       uses: ad-m/github-push-action@master
