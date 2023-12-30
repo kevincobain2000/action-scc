@@ -13,6 +13,6 @@
 ## Usage
 
 ```yaml
-    - uses: kevincobain2000/action-scc
+- uses: kevincobain2000/action-scc@v1
 ```
 

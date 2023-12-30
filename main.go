@@ -107,8 +107,8 @@ func createBarChartURL(scc []SccStat, limit int) string {
 	json, _ := json.Marshal(data)
 	queries := map[string]string{
 		"title":    "SCC+-+Sloc,+Cloc+and+Code",
-		"width":    "1024",
-		"height":   "720",
+		"width":    "960",
+		"height":   "700",
 		"subtitle": subtitle,
 		"data":     string(json),
 	}
