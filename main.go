@@ -90,7 +90,9 @@ func createBarChartURL(scc []SccStat, limit int) string {
 		if idx >= limit {
 			break
 		}
-		data.X = append(data.X, stat.Name)
+		name := strings.ReplaceAll(stat.Name, "/", "-")
+		name = strings.ReplaceAll(name, " ", "+")
+		data.X = append(data.X, name)
 	}
 
 	y := make([][]int, len(data.Names))
