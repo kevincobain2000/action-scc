@@ -81,6 +81,12 @@ func newOrReplaceInFile(markdownImgeURL string, filename string) {
 	}
 }
 
+func normalizeName(name string) string {
+	name = strings.ReplaceAll(name, "/", "-")
+	name = strings.ReplaceAll(name, " ", "-")
+	return name
+}
+
 func createBarChartURL(scc []SccStat, limit int) string {
 	var chartURL string
 	var data BarData
@@ -90,15 +96,13 @@ func createBarChartURL(scc []SccStat, limit int) string {
 		if idx >= limit {
 			break
 		}
-		name := strings.ReplaceAll(stat.Name, "/", "-")
-		name = strings.ReplaceAll(name, " ", "+")
-		data.X = append(data.X, name)
+		data.X = append(data.X, normalizeName(stat.Name))
 	}
 
 	y := make([][]int, len(data.Names))
 	for _, x := range data.X {
 		for _, stat := range scc {
-			if x == stat.Name {
+			if x == normalizeName(stat.Name) {
 				y[0] = append(y[0], stat.Code)
 				y[1] = append(y[1], stat.Comment)
 				y[2] = append(y[2], stat.Count)
