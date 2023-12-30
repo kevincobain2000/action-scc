@@ -10,7 +10,7 @@ inputs:
     description: "limit languages for scc"
     required: false
     default: "7"
-  readme_filename:
+  filename:
     description: "markdown file to update"
     required: false
     default: "README.md"
@@ -44,7 +44,7 @@ runs:
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
 
-    - run: scc.sh ${{ inputs.limit }} ${{ inputs.readme_filename }} ${{ inputs.instachart_url }} ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ inputs.style }} ${{ inputs.width }} ${{ inputs.height }}
+    - run: scc.sh ${{ inputs.limit }} ${{ inputs.filename }} ${{ inputs.instachart_url }} ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ inputs.style }} ${{ inputs.width }} ${{ inputs.height }}
       shell: bash
 
     - name: Commit files
