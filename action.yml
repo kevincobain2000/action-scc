@@ -1,4 +1,4 @@
-name: "scc"
+name: "SCC - Sloc, Cloc and Code Action"
 author: "kevincobain2000"
 description: "SCC - Sloc, Cloc and Code: Action to update README.md with code stats"
 branding:
