@@ -1,4 +1,6 @@
-![action-scc](https://instachart.coveritup.app/bar?metric=+lines&width=960&height=700&subtitle=kevincobain2000@action-scc&data={"x":["YAML","Go"],"y":[[69,172],[0,2],[2,1],[0,34]],"names":["Code","Comment","Files","Complexity"]}&title=SCC+-+Sloc,+Cloc+and+Code)
+![action-bar-scc](https://instachart.coveritup.app/bar?title=SCC+-+Sloc,+Cloc+and+Code&metric=+lines&width=960&height=700&subtitle=Source Code Counter&data={"x":["PHP","Blade-template","YAML","Markdown"],"y":[[232177,851,1060,1645],[90988,52,26,0],[2103,76,45,43],[6513,75,0,0]],"names":["Code","Comment","Files","Complexity"]})
+
+![action-scc](https://instachart.coveritup.app/bar?height=700&subtitle=Source Code Counter&data={"x":["PHP","Blade-template","YAML","Markdown"],"y":[[232177,851,1060,1645],[90988,52,26,0],[2103,76,45,43],[6513,75,0,0]],"z":[[232177,851,1060,1645]],"names":["Code","Comment","Files","Complexity"]}&title=SCC+-+Sloc,+Cloc+and+Code&metric=+lines&width=960)
 
 <p align="center">
   <img alt="scc logo" src="https://imgur.com/QZx9ngs.png" width="160">

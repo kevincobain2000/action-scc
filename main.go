@@ -20,6 +20,7 @@ var (
 	style         string
 	width         string
 	height        string
+	theme         string
 	altText       string
 )
 
@@ -163,6 +164,7 @@ func flags() {
 	flag.StringVar(&style, "style", "", "chart style")
 	flag.StringVar(&width, "width", "", "chart width")
 	flag.StringVar(&height, "height", "", "chart height")
+	flag.StringVar(&theme, "theme", "", "chart theme")
 	flag.Parse()
 
 	// as flags can be empty string, and we want to use default values
@@ -175,17 +177,20 @@ func flags() {
 	if readmeFile == "" {
 		flag.Set("readme-file", "README.md")
 	}
-	if altText == "" {
-		flag.Set("alt-text", "action-scc")
-	}
 	if style == "" {
 		flag.Set("style", "bar")
+	}
+	if altText == "" {
+		flag.Set("alt-text", "action-"+style+"-scc")
 	}
 	if width == "" {
 		flag.Set("width", "960")
 	}
 	if height == "" {
 		flag.Set("height", "700")
+	}
+	if theme == "" {
+		flag.Set("theme", "light")
 	}
 	limitInt, _ = strconv.Atoi(limit)
 	if limitInt <= 0 {
