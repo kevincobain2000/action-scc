@@ -1,3 +1,5 @@
+![action-bar-scc](https://instachart.coveritup.app/bar?data={"x":["YAML","Go"],"y":[[73,177],[0,2],[2,1],[0,36]],"names":["Code","Comment","Files","Complexity"]}&title=SCC+-+Sloc,+Cloc+and+Code&metric=+lines&width=960&height=700&subtitle=kevincobain2000@action-scc)
+
 <p align="center">
   <img alt="scc logo" src="https://imgur.com/QZx9ngs.png" width="160">
 </p>
