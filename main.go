@@ -172,7 +172,7 @@ func flags() {
 		flag.Set("instachart-url", "https://instachart.coveritup.app")
 	}
 	if subtitle == "" {
-		flag.Set("subtitle", "Source Code Counter")
+		flag.Set("subtitle", "Source+Code+Counter")
 	}
 	if readmeFile == "" {
 		flag.Set("readme-file", "README.md")
